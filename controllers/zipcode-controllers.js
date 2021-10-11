@@ -5,6 +5,7 @@ const zipcodeController = {
     getAllZipcodes(req, res) {
         Zipcode.find()
             .select('-__v')
+            .sort({ zipcode: 1 })
             .then((zipcodeData) => {
                 res.json(zipcodeData);
             })
@@ -20,6 +21,10 @@ const zipcodeController = {
         )
             .select('-__v')
             .then((zipcodeData) => {
+                if (!zipcodeData) {
+                    res.json({ message: 'This zipcode is not in our system.' });
+                }
+
                 res.json(zipcodeData);
             })
             .catch((err) => {
@@ -44,6 +49,10 @@ const zipcodeController = {
             { zipcode: req.params.zipcode },
         )
             .then((zipcodeData) => {
+                if (!zipcodeData) {
+                    res.json({ message: 'This zipcode is not in our system.' });
+                }
+
                 res.json(zipcodeData);
             })
             .catch((err) => {
