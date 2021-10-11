@@ -2,10 +2,6 @@ const { Schema, model } = require('mongoose');
 
 const zipcodeSchema = new Schema(
     {
-        zipcodeId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
         zipcode: {
             type: Number,
             minlength: 5,
