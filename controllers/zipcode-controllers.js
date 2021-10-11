@@ -21,7 +21,19 @@ const zipcodeController = {
                 console.log(err);
                 res.status(500).json(err);
             });
-    }
+    },
+    deleteZipcode(req, res) {
+        Zipcode.findOneAndDelete(
+            { zipcode: req.params.zipcode },
+        )
+            .then((zipcodeData) => {
+                res.json(zipcodeData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 }
 
 module.exports = zipcodeController;
