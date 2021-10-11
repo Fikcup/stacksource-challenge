@@ -1,6 +1,7 @@
 const { Zipcode } = require('../models');
 
 const zipcodeController = {
+    // Get all zipcodes
     getAllZipcodes(req, res) {
         Zipcode.find()
             .select('-__v')
@@ -12,6 +13,7 @@ const zipcodeController = {
                 res.status(500).json(err);
             });
     },
+    // Get one zipcode
     getOneZipcode(req, res) {
         Zipcode.findOne(
             { zipcode: req.params.zipcode }
@@ -25,6 +27,7 @@ const zipcodeController = {
                 res.status(500).json(err);
             });
     },
+    // Add a new zipcode
     createZipcode(req, res) {
         Zipcode.create(req.body)
             .then((zipcodeData) => {
@@ -35,6 +38,7 @@ const zipcodeController = {
                 res.status(500).json(err);
             });
     },
+    // Delete zipcode
     deleteZipcode(req, res) {
         Zipcode.findOneAndDelete(
             { zipcode: req.params.zipcode },
