@@ -15,7 +15,7 @@
 ## About The Project
 
 ![Zipcode API Screenshot](./assets/stacksource.PNG)<br />
-Walkthrough: [Zipcode API walkthrough video]()
+Walkthrough: [Zipcode API walkthrough video](https://youtu.be/vT3z_4COXSQ)
 
 
 ### Built With
